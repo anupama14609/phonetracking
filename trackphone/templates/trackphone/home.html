@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Pyscript Tags Analyzer{% endblock title %}
+
+{% block active %} active{% endblock active %}
+
+{% block content %}
+<div class="col-md-8 p-4 text-white">       
+    <h4 class="fst-italic">Track Your Phone Location - Live Updated</h4>
+    <hr class="bg-light">
+    <h1 class="display-4 fst-italic">Enter Your Phone Number</h1>
+
+    <form method="GET">
+        <div class="form-group">
+            <label for="phone"></label>
+            <input type="text" class="form-control" id="phone" name='phone' value="{{request.GET.city}}" placeholder="Phone Number...........">
+        </div>
+        <button type="submit" class="btn btn-primary">Get Result</button>
+    </form> 
+
+    <div class="jumbotron my-4 text-dark">
+          
+        <p class="lead">
+           {% if results %}
+                <h3 class="display-6">View Your Results...........</h3>
+                <hr>                 
+                <h5 class="fst-italic">
+                    Country Code: <span>{{results.cc}}</span><br>
+                    Number: <span>{{results.nmbr}}</span>
+                </h5> 
+            {% endif %}
+        </p>
+    </div>
+ 
+ </div>
+{% endblock content %}
+
